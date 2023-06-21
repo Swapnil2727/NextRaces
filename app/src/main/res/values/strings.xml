@@ -1,0 +1,14 @@
+<resources>
+    <string name="app_name">NextToGo</string>
+    <!-- Error -->
+    <string name="failed_to_load">Failed to load</string>
+    <string name="refresh">Refresh</string>
+    <string name="filter_by_category">Filter by Category</string>
+    <string name="no_races">No races scheduled in near future</string>
+    <string name="please_visit_again_sometime_later">Please visit again sometime later</string>
+    <string name="horse">Horse</string>
+    <string name="harness">Harness</string>
+    <string name="grey_hound">Greyhound</string>
+    <string name="all_races">All Races</string>
+    <string name="something_went_wrong_please_try_again">Something went wrong, please try again.</string>
+</resources>
