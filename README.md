@@ -13,7 +13,6 @@ To set up the project locally, follow these steps:
 4. Run the app on an emulator or physical device.
 
 # Next to Go Races Android App
-![Screenshot_20230624-124820](https://github.com/Swapnil2727/NextRaces/assets/39974969/2e376dd0-bade-4a63-8cba-248c6da2f169) ![Screenshot_20230624-124811](https://github.com/Swapnil2727/NextRaces/assets/39974969/ff9d2b8a-a8d9-48c0-9463-c24df48c61cd) ![Screenshot_20230624-124834](https://github.com/Swapnil2727/NextRaces/assets/39974969/e35f2683-f5a5-4f85-b704-cf806702d106)
 
 This Android app is a solution to the technical task provided by Entain as part of the Mobile
 Engineer interview process. The app displays 'Next to Go' races using the provided API. It allows
@@ -76,3 +75,7 @@ packages. The main packages are as follows:
 The project includes unit tests. The tests cover unit testing of view model and UI for the interview
 purpose. In production app it is always useful to add API, Repository, and Screenshot testing for
 Composables, but for the purpose interview I think that's too much work.
+
+## ScreenShots
+
+![Screenshot_20230624-124820](https://github.com/Swapnil2727/NextRaces/assets/39974969/2e376dd0-bade-4a63-8cba-248c6da2f169) ![Screenshot_20230624-124811](https://github.com/Swapnil2727/NextRaces/assets/39974969/ff9d2b8a-a8d9-48c0-9463-c24df48c61cd) ![Screenshot_20230624-124834](https://github.com/Swapnil2727/NextRaces/assets/39974969/e35f2683-f5a5-4f85-b704-cf806702d106)
