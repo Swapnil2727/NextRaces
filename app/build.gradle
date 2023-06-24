@@ -52,6 +52,11 @@ android {
             excludes += '/META-INF/{AL2.0,LGPL2.1}'
         }
     }
+    testOptions {
+        unitTests {
+            includeAndroidResources = true
+        }
+    }
 }
 
 dependencies {
@@ -83,7 +88,7 @@ dependencies {
     testImplementation 'androidx.compose.ui:ui-test-junit4:1.4.3'
 
     def hiltVersion = "2.45"
-    implementation ("com.google.dagger:hilt-android:$hiltVersion")
+    implementation("com.google.dagger:hilt-android:$hiltVersion")
     kapt("com.google.dagger:hilt-compiler:$hiltVersion")
     testImplementation("com.google.dagger:hilt-android-testing:$hiltVersion")
     kaptTest("com.google.dagger:hilt-android-compiler:$hiltVersion")
@@ -100,7 +105,6 @@ dependencies {
     def kotlinImmutableCollections = "0.3.5"
     implementation "org.jetbrains.kotlinx:kotlinx-collections-immutable:$kotlinImmutableCollections"
 
-
     // accompanist placeholder
     def accompanist = "0.27.0"
     implementation "com.google.accompanist:accompanist-placeholder-material:$accompanist"
@@ -111,9 +115,6 @@ dependencies {
     // Compose ViewModel
     implementation "androidx.lifecycle:lifecycle-viewmodel-compose:2.6.1"
 
-    // Coil
-    implementation("io.coil-kt:coil-compose:2.3.0")
-
     // Faker
     implementation 'io.github.serpro69:kotlin-faker:1.14.0'
 
@@ -122,8 +123,4 @@ dependencies {
 
     // Robolectric
     testImplementation 'org.robolectric:robolectric:4.9'
-
-    // Faker
-    implementation 'io.github.serpro69:kotlin-faker:1.14.0'
-
 }

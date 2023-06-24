@@ -17,7 +17,7 @@ import androidx.compose.runtime.remember
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.clip
-import androidx.compose.ui.platform.LocalContext
+import androidx.compose.ui.platform.testTag
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.semantics.semantics
 import androidx.compose.ui.tooling.preview.Preview
@@ -64,18 +64,25 @@ fun RaceItem(
                 .clip(CircleShape)
                 .size(56.dp)
                 .autoPlaceholder(PlaceholderShape.Icon)
+                .testTag(category.name)
         )
         Text(
             text = raceNumber.toString(),
-            modifier = Modifier.autoPlaceholder(PlaceholderShape.TextLarge)
+            modifier = Modifier
+                .autoPlaceholder(PlaceholderShape.TextLarge)
+                .testTag("raceNumber")
         )
         Text(
             text = meetingName,
-            modifier = Modifier.autoPlaceholder(PlaceholderShape.TextSmall)
+            modifier = Modifier
+                .autoPlaceholder(PlaceholderShape.TextSmall)
+                .testTag("meetingName")
         )
         TimeToGoInfo(
             startTime = startTime,
-            modifier = Modifier.hideIfPlaceholder()
+            modifier = Modifier
+                .hideIfPlaceholder()
+                .testTag("remainingTimeToGo")
         )
     }
 }

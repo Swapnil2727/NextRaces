@@ -68,7 +68,7 @@ class NextToGoViewModel @Inject constructor(
     fun filterByCategory(category: NextToGoState.RaceCategory) {
         Log.d("NextToGoViewModel", "filterByCategory")
         _state.update { nextToGoState ->
-          //  if (nextToGoState.data == null) return
+            //  if (nextToGoState.data == null) return
             nextToGoState.copy(
                 data = nextToGoState.data?.copy(
                     localRaceSummaries = nextToGoState.data.raceSummaries

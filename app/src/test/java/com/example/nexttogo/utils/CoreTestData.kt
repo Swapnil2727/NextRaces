@@ -10,10 +10,15 @@ import androidx.compose.ui.test.SemanticsMatcher
 import androidx.compose.ui.test.assert
 import androidx.compose.ui.test.hasAnyDescendant
 import androidx.compose.ui.test.hasText
-import com.example.nexttogo.data.remote.AllRaceDetails
 import com.example.nexttogo.data.repo.RaceSummary
+import com.example.nexttogo.ui.NextToGoState
+import com.example.nexttogo.ui.toRaceSummary
 import io.github.serpro69.kfaker.faker
+import kotlinx.collections.immutable.ImmutableList
+import kotlinx.collections.immutable.toImmutableList
 import java.time.Instant
+import java.time.OffsetDateTime
+import java.time.temporal.ChronoUnit
 import java.util.Random
 
 val random = Random(0)
@@ -38,14 +43,33 @@ fun isSnackbar() =
     SemanticsMatcher.keyIsDefined(SemanticsProperties.LiveRegion) and
             SemanticsMatcher.keyIsDefined(SemanticsActions.Dismiss)
 
-fun Random.nextPhotoUrl() = "https://example.com/photo/${nextInt()}.jpg"
+fun Random.nextInstant(): Instant = "2000-01-01T00:00:00.00Z"
+    .toOffsetDateTime()
+    .plus(nextInt(1000).toLong(), ChronoUnit.YEARS)
+    .plus(nextInt(12).toLong(), ChronoUnit.MONTHS)
+    .plus(nextInt(365).toLong(), ChronoUnit.DAYS)
+    .toInstant()
 
-fun Random.nextRaceSummary() = AllRaceDetails.RaceSummary(
-    raceId = faker.idNumber.toString(),
+
+fun String.toOffsetDateTime(): OffsetDateTime = OffsetDateTime.parse(this)
+
+fun Random.nextRaceSummary(
+    category: RaceSummary.RaceCategory = RaceSummary.RaceCategory.values()
+        .random()
+) = RaceSummary(
+    raceId = random.nextInt().toString(),
     raceName = faker.name.toString(),
     raceNumber = nextInt(),
     meetingId = faker.idNumber.toString(),
     meetingName = faker.company.name(),
-    category = AllRaceDetails.RaceSummary.RaceCategory.values().random(),
-    advertisedStart = AllRaceDetails.RaceSummary.AdvertisedStart(Instant.now().epochSecond.plus(nextLong()))
+    category = category,
+    advertisedStart = RaceSummary.AdvertisedStart(nextInstant().epochSecond)
+)
+
+fun Random.nextData(
+    raceSummaries: ImmutableList<NextToGoState.RaceSummary> = List(10) { nextRaceSummary().toRaceSummary() }.toImmutableList(),
+    localRaceSummaries: ImmutableList<NextToGoState.RaceSummary> = List(10) { nextRaceSummary().toRaceSummary() }.toImmutableList(),
+) = NextToGoState.Data(
+    raceSummaries = raceSummaries,
+    localRaceSummaries = localRaceSummaries,
 )
