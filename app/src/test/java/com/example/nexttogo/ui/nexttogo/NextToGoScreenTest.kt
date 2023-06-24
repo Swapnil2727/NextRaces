@@ -18,6 +18,7 @@ import com.example.nexttogo.utils.resources
 import com.example.nexttogo.utils.runAndroidComposeUiTest
 import io.mockk.mockk
 import io.mockk.verify
+import kotlinx.collections.immutable.persistentListOf
 import org.junit.Test
 import org.junit.runner.RunWith
 
@@ -95,9 +96,14 @@ class NextToGoScreenTest {
     }
 
     @Test
-    fun `given empty data, and no error, should present empty notice`() {
+    fun `given non empty data, empty local race summaries and no error, should present empty notice`() {
         runAndroidComposeUiTest {
-            setContent { Screen(data = null, error = null) }
+            setContent {
+                Screen(
+                    data = random.nextData(localRaceSummaries = persistentListOf()),
+                    error = null
+                )
+            }
             onNode(hasTestTag("EmptyNotice")).assertExists()
         }
     }

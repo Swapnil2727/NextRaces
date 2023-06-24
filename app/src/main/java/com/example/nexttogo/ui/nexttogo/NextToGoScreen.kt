@@ -168,7 +168,7 @@ fun NextToGoScreen(
                         }
                     }
                 }
-                if (data == null && !isLoading && error == null) {
+                if (data != null && data.localRaceSummaries.isEmpty() && !isLoading && error == null) {
                     item {
                         ErrorNotice(
                             icon = {

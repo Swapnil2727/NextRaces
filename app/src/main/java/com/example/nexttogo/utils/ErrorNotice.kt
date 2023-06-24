@@ -73,7 +73,7 @@ fun ErrorNotice(
 private fun EmptyNoticePreview() = ErrorNotice(
     icon = {
         Image(
-            painterResource(R.drawable.ic_launcher_background),
+            painterResource(R.drawable.no_race_flag),
             contentDescription = null
         )
     },
