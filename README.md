@@ -59,16 +59,19 @@ updates, dynamic filtering options, and seamless data refresh capabilities.
 - [Accompanist placeholder](https://google.github.io/accompanist/placeholder/)A library which
   provides a modifier for display 'placeholder' UI while content is loading
 
-## Project Structure
+## Project Structure 
 
-The project follows a standard Android project structure, separating different components into
-packages. The main packages are as follows:
+[Morden-app-architecture](https://developer.android.com/topic/architecture#modern-app-architecture)
+
+The project follows Android architecture best practices, incorporating a reactive and layered architecture, unidirectional data flow (UDF) in all layers of the app, a UI layer with state holders, coroutines and flows, and dependency injection best practices.
 
 - `data`: Contains the data models, API service, and repository for fetching race data.
 - `ui`: Contains the Jetpack Compose UI code, including screens, components, and navigation.
 - `di`: Contains the Dagger Hilt dependency injection setup.
 - `utils`: Contains utility classes and extensions used throughout the app.
 - `test`: Contains test classes for unit testing.
+
+By following these Android architecture best practices, the project achieves separation of concerns, modularity, testability, and scalability. It embraces reactive programming with coroutines and flows, implements a unidirectional data flow pattern for efficient state management, and adheres to dependency injection best practices for a robust and maintainable codebase.
 
 ## Testing
 
